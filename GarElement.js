@@ -16,20 +16,19 @@ export default class GarElement extends Component<{}> {
     }
   }
 
-_handleScoreChange(newScore) {
-  this.setState({score: newScore})
-  this.props.onScoreChange(this.props.elementInfo.id,newScore)
-}
+  _handleScoreChange(newScore) {
+    this.setState({score: newScore})
+    this.props.onScoreChange(this.props.elementInfo.id,newScore)
+  }
   render() {
     return (
       <View >
-      <Text>{this.props.elementInfo.name} {this.state.score}</Text>
-      <Slider
-        maximumValue={10}
-        step={1}
-        value={2}
-        onValueChange={(score) => this._handleScoreChange(score)}
-        />
+        <Text>{this.props.elementInfo.name} {this.state.score}</Text>
+        <Slider maximumValue={10}
+                step={1}
+                value={2}
+                onValueChange={(score) => this._handleScoreChange(score)}
+                />
 
       </View>
     );

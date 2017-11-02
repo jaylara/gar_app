@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   Platform,
@@ -13,18 +7,10 @@ import {
   View
 } from 'react-native';
 
-
 import WarningBanner from './WarningBanner';
 import GarList from './GarList';
 import GarElement from './GarElement';
 import ResetButton from './ResetButton';
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
 
 const gars = [
     {"id": 0, "name": "Supervision", "desc": "Supervisor Qualification/Engagement"},
@@ -36,28 +22,23 @@ const gars = [
 ];
 
 export default class App extends Component<{}> {
-constructor(props) {
-  super(props);
+  constructor(props) {
+    super(props);
 
-  this.state = {
-    total: 12
+    this.state = {
+      total: 12
+    }
+    this._handleReset = this._handleReset.bind(this);
+    this._handleColorChange = this._handleColorChange.bind(this);
+    this._handleScoreChange = this._handleScoreChange.bind(this);
   }
-this._handleReset = this._handleReset.bind(this);
-
-this._handleColorChange = this._handleColorChange.bind(this);
-
-this._handleScoreChange = this._handleScoreChange.bind(this);
-}
 
   _handleReset (val) {
-
     this.setState({total: 12});
   }
 
   _handleColorChange() {
-    //Alert.alert("Sophia touched me!");
   }
-
 
   _handleScoreChange(newScore) {
     this.setState({total: newScore});
@@ -65,11 +46,9 @@ this._handleScoreChange = this._handleScoreChange.bind(this);
 
 
   render() {
-  //  let s = ;
     return (
       <View style={styles.container} >
         <WarningBanner total={this.state.total} onColorChange={this._handleColorChange}/>
-        {/*<GarElement onScoreChange={this._handleScoreChange}/>*/}
         <GarList onScoreChange={this._handleScoreChange} data={gars}/>
         <ResetButton onReset={this._handleReset} />
       </View>
@@ -88,8 +67,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     margin: 10,
   },
-
-
   instructions: {
     textAlign: 'center',
     color: '#333333',

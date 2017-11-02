@@ -1,5 +1,3 @@
-
-
 import React, { Component } from 'react';
 import {
   Platform,
@@ -15,7 +13,7 @@ export default class ResetButton extends Component<{}> {
   render() {
     return (
       <View>
-      <Button style={styles.button} onPress={() => { this.props.onReset("Sophia Touched Me!") }} title={'RESET'} />
+        <Button style={styles.button} onPress={() => { this.props.onReset("Sophia Touched Me!") }} title={'RESET'} />
       </View>
     );
   }
